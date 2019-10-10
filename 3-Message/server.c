@@ -4,7 +4,6 @@
 #include <arpa/inet.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdlib.h>
 
 #define BUF_SIZE 256
 #define MONEY_DIGIT_SIZE 10
@@ -17,9 +16,7 @@ int main(int argc, char *argv[]) {
 	struct sockaddr_in clientAddress;
 	unsigned int szClientAddr;
 	int cliSock;
-
 	int servSock = prepare_server_socket(10001);
-    
 	listen(servSock, 5);
 
 	while (1) {

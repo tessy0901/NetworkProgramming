@@ -4,7 +4,6 @@
 #include <arpa/inet.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdlib.h>
 
 #define BUF_SIZE 256
 #define MONEY_DIGIT_SIZE 10
@@ -22,7 +21,6 @@ int main(int argc, char *argv[]) {
     int sock = prepare_client_socket(argv[1], atoi(argv[2]));
 
     commun(sock);
-
     close(sock);
 
     return 0;
@@ -73,14 +71,12 @@ void commun(int sock) {
                 // 引き出し処理
                 printf("引き出す金額を入力してください > ");
                 my_scanf(withdraw, MONEY_DIGIT_SIZE);
-
                 sprintf(msg, "0_%s_", withdraw);
                 break;
             case '1':
                 //預け入れ処理
                 printf("預け入れる金額を入力してください > ");
                 my_scanf(deposit, MONEY_DIGIT_SIZE);
-                
                 sprintf(msg, "%s_0_", deposit);
                 break;
             case '2':
